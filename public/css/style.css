@@ -1,0 +1,100 @@
+/* body{
+    background-color: pink;
+} */
+
+/* html{
+    height: 100%;
+}*/
+
+body{
+    padding-bottom: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar{
+    height: 5 rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info{
+    display: flex;
+    height: 5rem;
+    background-color: #ebebee;
+    justify-content: center;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.f-info-links{
+    width: 100%;
+}
+
+.navbar {
+    border-bottom: 2px solid #ebebee;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.listing-card{
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-img-top:hover{
+    opacity: 0.5;
+}
+
+.card-body{
+    padding: 0;
+}
+
+.card-text p{
+    font-weight: 400;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.add-btn{
+    background-color: #fe424d;
+    border: none;
+}
+
+.update-btn{
+    background-color: #fe424d;
+    border: none;
+}
+
+.show-img{
+    height: 30vh;
+}
+
+/*map styling*/
+
+#map {
+    height: 300px;
+    width: 100vh;
+}

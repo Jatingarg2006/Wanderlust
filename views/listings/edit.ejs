@@ -1,0 +1,56 @@
+<% layout("layouts/boilerplate") -%>
+<body>
+    <h2 class="text-center mt-2 mb-4">Edit This Listing Data</h2>
+
+    <div class="offset-3">
+        <form class="mb-3" method="post" action="/listings/<%= one._id %>?_method=put" enctype="multipart/form-data">
+        
+        <!-- Title Input -->
+        <div class="mb-3 col-8">
+          <label for="title" class="form-label fw-bold">Title</label>
+          <input type="text" class="form-control" id="title" name="title" value="<%= one.title %>" required>
+        </div>
+
+        <!-- Description Textarea -->
+        <div class="mb-3 col-8">
+          <label for="description" class="form-label fw-bold">Description</label>
+          <textarea class="form-control" id="description" name="description" rows="3" required><%= one.description %></textarea>
+        </div>
+
+        <div class="mb-3 col-8">
+          Original Listing Image <br>
+          <img src="<%= originalImageUrl %>" alt="" width="300px" height="200px">
+        </div>
+
+        <!-- Image URL Input -->
+        <div class="mb-3 col-8">
+          <label for="image" class="form-label fw-bold">Upload New Image</label>
+          <input type="file" class="form-control" id="image" name="listing[image]">
+        </div>
+
+        <!-- Price Input -->
+        <div class="mb-3 col-8">
+          <label for="price" class="form-label fw-bold">Price</label>
+          <input type="number" class="form-control" id="price" name="price" value="<%= one.price %>" required>
+        </div>
+
+        <!-- Country Input -->
+        <div class="mb-3 col-8">
+          <label for="country" class="form-label fw-bold">Country</label>
+          <input type="text" class="form-control" id="country" name="country" value="<%= one.country %>" required>
+        </div>
+
+        <!-- Location Input -->
+        <div class="mb-3 col-8">
+          <label for="location" class="form-label fw-bold">Location</label>
+          <input type="text" class="form-control" id="location" name="location" value="<%= one.location %>" required>
+        </div>
+
+        <!-- Submit Button -->
+         <div>
+            <button type="submit" class="btn btn-primary mt-2 update-btn">Update Listing</button>
+         </div>
+      </form>
+    </div>
+
+</body>
