@@ -104,6 +104,10 @@ app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 app.use("/", userRouter);
 
+app.get("/", (req,res) => {
+    res.redirect("/listings");
+});
+
 app.use((req, res, next) => {
     next(new expressError(404, "Page Not Found"));
 });
@@ -111,10 +115,6 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     let { status = 500, message = "Something went wrong" } = err;
     res.status(status).send(message);
-});
-
-app.get("/", (req,res) => {
-    res.redirect("/listings");
 });
 
 app.listen(8080, () => {
