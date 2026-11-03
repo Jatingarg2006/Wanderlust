@@ -113,6 +113,10 @@ app.use((err, req, res, next) => {
     res.status(status).send(message);
 });
 
+app.get("/", (req,res) => {
+    res.redirect("/listings");
+});
+
 app.listen(8080, () => {
     console.log("Listening on the Port 8080");
 })
