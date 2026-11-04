@@ -98,3 +98,100 @@ footer{
     height: 300px;
     width: 100vh;
 }
+
+
+/* ============================= */
+/* TABLET RESPONSIVENESS */
+/* ============================= */
+
+@media screen and (max-width: 768px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 100%;
+    }
+
+    .row {
+        flex-wrap: wrap;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .listing-container,
+    .listings-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+
+}
+
+
+/* ============================= */
+/* MOBILE RESPONSIVENESS */
+/* ============================= */
+
+@media screen and (max-width: 480px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .listing-container,
+    .listings-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+}
