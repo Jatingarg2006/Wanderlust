@@ -125,35 +125,45 @@
 
     <!-- justify-content-center centres the row grid columns on the screen -->
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 justify-content-center g-4 mx-auto" style="max-width: 1200px;">
-        <% for(let list of allListings){ %>
-            <a href="/listings/<%= list._id %>" class="listing-link text-dark text-decoration-none">
-                <div class="col d-flex justify-content-center">
-                <div class="card listing-card" style="width: 20rem;">
-                    <img class="card-img-top" src="<%= list.image.url %>" alt="listing_image" style="height: 15rem; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <p class="card-text"> 
-                            <strong><%= list.title %></strong> <br>
-                            ₹<%= list.price.toLocaleString("en-IN") %> / night
-                            <i class="tax-info">+18% GST</i>
-                        </p>
-                    </div>
-                </div>
+    <% for(let list of allListings){ %>
+        <a href="/listings/<%= list._id %>" class="listing-link text-dark text-decoration-none">
+        <div class="col d-flex justify-content-center">
+            <div class="card listing-card" style="width: 20rem;">
+            <img class="card-img-top" src="<%= list.image.url %>" alt="listing_image" style="height: 15rem; object-fit: cover;">
+            <div class="card-body text-center">
+                <p class="card-text">
+                <strong><%= list.title %></strong> <br>
+                ₹<span class="price-display" data-price="<%= list.price %>"><%= list.price.toLocaleString("en-IN") %></span> / night
+                <i class="tax-info" style="display: none;">(incl. 18% GST)</i>
+                </p>
             </div>
-            </a>
-        <% } %>
+            </div>
+        </div>
+        </a>
+    <% } %>
     </div>
 </body>
 
 <script>
-    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-    taxSwitch.addEventListener("click", () => {
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for(info of taxInfo){
-            if(info.style.display != "inline"){
-                info.style.display = "inline";
-            } else{
-                info.style.display = "none";
-            }
+  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+
+  if (taxSwitch) {
+    taxSwitch.addEventListener("change", () => {
+      let priceElements = document.getElementsByClassName("price-display");
+      let taxInfos = document.getElementsByClassName("tax-info");
+
+      for (let i = 0; i < priceElements.length; i++) {
+        let basePrice = Number(priceElements[i].dataset.price);
+
+        if (taxSwitch.checked) {
+          let totalWithTax = Math.round(basePrice * 1.18);
+          priceElements[i].innerText = totalWithTax.toLocaleString("en-IN");
+          taxInfos[i].style.display = "inline";
+        } else {
+          priceElements[i].innerText = basePrice.toLocaleString("en-IN");
+          taxInfos[i].style.display = "none";
         }
+      }
     });
+  }
 </script>
