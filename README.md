@@ -43,7 +43,7 @@ Want to explore the project or run it on your own machine? Follow these steps.
 ### 1. Clone the Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/Jatingarg2006/Wanderlust.git
 ```
 
 ### 2. Navigate to the Project Directory
